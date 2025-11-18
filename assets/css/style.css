@@ -1,20 +1,12 @@
-/* ==================================
-   CSS PROJETO 3 - ESTILO GLASSMORPHISM (BRUNA)
-   ==================================
-*/
-
-/* --- Reset Básico e Fundo --- */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  /* Habilita rolagem suave ao clicar nos links do menu */
   scroll-behavior: smooth;
 }
 
 body {
-  /* Seu degradê original */
   background: conic-gradient(
     #db66e4,
     #db66e4,
@@ -24,13 +16,11 @@ body {
     #db66e4,
     #db66e4
   );
-  /* O fundo fica fixo e não rola com a página */
   background-attachment: fixed;
   color: black;
   transition: background 0.5s, color 0.5s;
 }
 
-/* O fundo degradê (precisa estar separado para o blur funcionar) */
 .background-overlay {
   position: fixed;
   top: 0;
@@ -53,14 +43,12 @@ body {
 .container {
   max-width: 800px;
   margin: 0 auto;
-  /* Espaço no topo para o menu fixo não cobrir o conteúdo */
   padding-top: 100px;
   padding-bottom: 2em;
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
-/* --- Menu de Navegação Fixo --- */
 .main-nav {
   position: fixed;
   top: 0;
@@ -70,7 +58,6 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1em 2em;
-  /* Efeito Glassmorphism no menu */
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -90,30 +77,25 @@ body {
   display: flex;
   gap: 1em;
 }
-/* Logo no menu */
 .nav-logo {
   font-size: 1.2em;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-/* --- O Card de Vidro (Estilo Principal) --- */
 .card {
-  background: rgba(255, 255, 255, 0.15); /* Fundo branco transparente */
-  backdrop-filter: blur(20px); /* O desfoque */
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 1em;
-  width: 100%; /* Ocupa a largura do container */
+  width: 100%;
   text-align: center;
   padding: 2em;
-  margin-bottom: 2em; /* Espaço entre os cards */
+  margin-bottom: 2em;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   transition: border-color 0.5s;
 }
 
-/* --- Estilos das Seções --- */
-
-/* Home */
 #home {
   text-align: center;
 }
@@ -131,14 +113,13 @@ body {
   font-size: 2em;
   margin-bottom: 0.5em;
 }
-/* Efeito de digitação (precisa de altura mínima) */
+
 #cargo {
   font-size: 1.2em;
   min-height: 1.5em;
   font-weight: 500;
 }
 
-/* Seções Gerais */
 h2 {
   font-size: 1.8em;
   margin-bottom: 0.8em;
@@ -151,31 +132,29 @@ h2 {
   text-align: justify;
 }
 
-/* --- Seção Projetos (Req. Modal) --- */
 .project-item {
-  cursor: pointer; /* Indica que o card é clicável */
+  cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-bottom: 1px dashed rgba(0, 0, 0, 0.3);
   padding-bottom: 1.5em;
   margin-bottom: 1.5em;
-  text-align: left; /* Alinha texto dos projetos à esquerda */
+  text-align: left;
 }
 .project-item:last-child {
   border-bottom: none;
   margin-bottom: 0;
 }
 .project-item:hover {
-  transform: scale(1.02); /* Leve "zoom" ao passar o mouse */
+  transform: scale(1.02);
   box-shadow: 0 12px 32px rgba(31, 38, 135, 0.5);
   background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   padding: 1em;
 }
 
-/* --- A CORREÇÃO DA IMAGEM GRANDE ESTÁ AQUI --- */
 .project-thumb {
-  width: 100%; /* Força a imagem a respeitar a largura do card */
-  height: auto; /* Mantém a proporção */
+  width: 100%;
+  height: auto;
   border-radius: 8px;
   margin-bottom: 1em;
   opacity: 0.9;
@@ -187,7 +166,6 @@ h2 {
   margin-bottom: 0.5em;
 }
 
-/* Botões "Ver Projeto" e "Ver Código" (Dentro do Modal ou Card) */
 .project-links {
   margin-top: 1em;
   display: flex;
@@ -208,7 +186,6 @@ h2 {
   color: white;
 }
 
-/* --- Seção Habilidades (Req. Novo) --- */
 .skills-list {
   list-style: none;
   display: flex;
@@ -224,7 +201,6 @@ h2 {
   font-weight: 500;
 }
 
-/* --- Seção Contato (Req. Formulário AJAX) --- */
 #form-contato {
   display: flex;
   flex-direction: column;
@@ -268,7 +244,6 @@ h2 {
   font-weight: bold;
 }
 
-/* Redes Sociais (no rodapé do contato) */
 .redes-sociais {
   display: flex;
   justify-content: center;
@@ -293,7 +268,6 @@ h2 {
   color: white;
 }
 
-/* --- Estilo do Modal (Req. Novo) --- */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -305,8 +279,6 @@ h2 {
   align-items: center;
   justify-content: center;
   z-index: 2000;
-
-  /* Começa escondido */
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -316,16 +288,14 @@ h2 {
   visibility: visible;
 }
 .modal-content {
-  /* Reutiliza o .card, mas com ajustes */
   max-width: 600px;
   width: 90%;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
-  /* Animação de "pop-up" */
   transform: scale(0.9);
   transition: transform 0.3s ease;
-  background: rgba(255, 255, 255, 0.95); /* Fundo mais sólido para leitura */
+  background: rgba(255, 255, 255, 0.95);
   color: black;
 }
 .modal-overlay.visivel .modal-content {
@@ -346,12 +316,11 @@ h2 {
   width: 100%;
   border-radius: 8px;
   margin-bottom: 1em;
-  display: block; /* Garante que a imagem não fique oculta */
+  display: block;
 }
 
-/* --- Botão de Tema (Dark Mode) --- */
 .theme-btn {
-  position: fixed; /* Fixo na tela */
+  position: fixed;
   bottom: 20px;
   right: 20px;
   background: rgba(0, 0, 0, 0.2);
@@ -372,23 +341,17 @@ h2 {
   background: rgba(0, 0, 0, 0.4);
 }
 
-/* --- Menu Hambúrguer (Req. Mobile) --- */
 .btn-mobile {
-  display: none; /* Escondido no Desktop */
+  display: none;
   background: none;
   border: none;
   color: inherit;
   font-size: 2rem;
   cursor: pointer;
-  z-index: 1100; /* Acima do menu */
+  z-index: 1100;
 }
 
-/* ==================================
-   REGRAS DO MODO ESCURO (DARK MODE)
-   (Atualizado para novos elementos)
-==================================
-*/
-body.dark-mode {
+*/ body.dark-mode {
   background: conic-gradient(
     #4a234f,
     #4a234f,
@@ -483,19 +446,14 @@ body.dark-mode .redes-sociais a:hover {
   background: white;
   color: black;
 }
-/* Modal no Dark Mode */
 body.dark-mode .modal-content {
   background: rgba(30, 30, 30, 0.95);
   color: white;
 }
 
-/* ==================================
-   RESPONSIVIDADE (MOBILE)
-==================================
-*/
 @media screen and (max-width: 768px) {
   .container {
-    padding-top: 80px; /* Menos espaço no topo */
+    padding-top: 80px;
   }
 
   .card {
@@ -508,20 +466,18 @@ body.dark-mode .modal-content {
     padding: 0.8em 1em;
   }
 
-  /* --- Lógica do Menu Hambúrguer --- */
   .nav-links {
     position: fixed;
     top: 0;
     right: 0;
     height: 100vh;
     width: 70%;
-    background: rgba(255, 255, 255, 0.2); /* Fundo glassmorphism */
+    background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(15px);
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2em;
-    /* Escondido por padrão */
     transform: translateX(100%);
     transition: transform 0.3s ease-in;
   }
@@ -529,12 +485,11 @@ body.dark-mode .modal-content {
     transform: translateX(0);
   }
   .btn-mobile {
-    display: block; /* Mostra o botão hambúrguer */
+    display: block;
   }
   body.dark-mode .nav-links {
     background: rgba(0, 0, 0, 0.5);
   }
-  /* --- Fim do Menu Hambúrguer --- */
 
   .profile-photo {
     width: 8em;
