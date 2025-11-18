@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <title>Bruna Pires - Portfólio de Desenvolvimento</title>
+  </head>
+
+  <body id="body">
+    <div class="background-overlay"></div>
+
+    <button id="theme-toggle" class="theme-btn">
+      <i class="bi bi-moon-stars-fill"></i>
+    </button>
+
+    <nav class="main-nav" id="main-nav">
+      <a href="#home" class="nav-logo">Bruna Pires</a>
+
+      <div class="nav-links" id="nav-links">
+        <a href="#sobre">Sobre Mim</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#contato">Contato</a>
+      </div>
+
+      <button id="btn-mobile" class="btn-mobile">
+        <i class="bi bi-list"></i>
+      </button>
+    </nav>
+
+    <div class="container">
+      <section id="home" class="card">
+        <img
+          id="fotoPerfil"
+          src="assets/img/IMG_20210923_185842_.jpg"
+          alt="Foto Bruna Pires"
+          class="profile-photo"
+        />
+        <h1 id="nome">Bruna Pires de Azevedo</h1>
+        <p id="cargo" class="typing-effect"></p>
+      </section>
+
+      <section id="sobre" class="card">
+        <h2>Sobre Mim</h2>
+        <p class="minha-bio">
+          Sou uma estudante de Análise e Desenvolvimento de Sistemas focada em
+          criar aplicações web interativas com JavaScript. Tenho habilidade em
+          implementar lógicas de negócio complexas, como o cálculo progressivo
+          de impostos (CLT/PJ), e conhecimento em algoritmos e estruturas de
+          dados para o *parsing* de expressões matemáticas (Calculadora RPN).
+        </p>
+      </section>
+
+      <section id="projetos" class="card">
+        <h2>Projetos</h2>
+
+        <div
+          class="project-item"
+          data-titulo="Calculadora CLT vs. PJ"
+          data-imagem="./assets/img/Imposto de Renda.png"
+          data-descricao="Uma aplicação de análise financeira que compara regimes de contratação. O sistema implementa regras de negócio complexas, incluindo o cálculo progressivo e automatizado das tabelas de INSS e IRRF."
+          data-tecnologias="JavaScript (Lógica de Negócio), HTML5, CSS (Glassmorphism)"
+          data-link-projeto="https://brunapires189.github.io/Imposto-de-Renda/"
+          data-link-github="https://github.com/brunapires189/Imposto-de-Renda"
+        >
+          <img
+            src="./assets/img/Imposto de Renda.png"
+            alt="Preview Calculadora IR"
+            class="project-thumb"
+          />
+          <h3>Calculadora de Encargos CLT vs. PJ</h3>
+          <p>Análise de regras de negócio e impostos progressivos.</p>
+        </div>
+
+        <div
+          class="project-item"
+          data-titulo="Calculadora com Parser RPN"
+          data-imagem="./assets/img/Calculadora.png"
+          data-descricao="Uma calculadora funcional com parser de Notação Polonesa Reversa (RPN). Este projeto demonstra a implementação de estruturas de dados (pilha) e algoritmos de *parsing* para avaliar expressões matemáticas."
+          data-tecnologias="JavaScript (Algoritmos, Pilhas), HTML5, CSS (Glassmorphism)"
+          data-link-projeto="https://brunapires189.github.io/Calculadora/"
+          data-link-github="https://github.com/brunapires189/Calculadora"
+        >
+          <img
+            src="./assets/img/Calculadora.png"
+            alt="Preview Calculadora RPN"
+            class="project-thumb"
+          />
+          <h3>Calculadora com Parser RPN</h3>
+          <p>Implementação de estruturas de dados (Pilha) e algoritmos.</p>
+        </div>
+      </section>
+
+      <section id="habilidades" class="card">
+        <h2>Habilidades (Minha Stack)</h2>
+        <ul class="skills-list">
+          <li>JavaScript (ES6+)</li>
+          <li>HTML5 Semântico</li>
+          <li>CSS3 (Flexbox/Grid)</li>
+          <li>Lógica de Programação</li>
+          <li>Estrutura de Dados</li>
+          <li>Regras de Negócio</li>
+          <li>Consumo de API (Fetch)</li>
+          <li>Git & GitHub</li>
+        </ul>
+      </section>
+
+      <section id="contato" class="card">
+        <h2>Contato</h2>
+        <p>Envie uma mensagem e vamos conversar.</p>
+
+        <form
+          id="form-contato"
+          action="https://formspree.io/f/xzzozwlv"
+          method="POST"
+        >
+          <input type="text" name="name" placeholder="Seu Nome" required />
+          <input type="email" name="email" placeholder="Seu E-mail" required />
+          <textarea
+            name="message"
+            placeholder="Sua Mensagem"
+            rows="5"
+            required
+          ></textarea>
+          <button type="submit" class="btn-form">Enviar Mensagem</button>
+        </form>
+        <div id="form-status"></div>
+        <div class="redes-sociais">
+                <a href="https://github.com/brunapires189" target="_blank">
+                    <i class="bi bi-github"></i> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/bruna-pires-58bb01162/" target="_blank">
+                    <i class="bi bi-linkedin"></i> LinkedIn
+                </a>
+            </div>
+            </section>
+      </section>
+    </div>
+    <div id="modal-projeto" class="modal-overlay">
+      <div class="modal-content card">
+        <button id="modal-close-btn" class="modal-close">&times;</button>
+        <img id="modal-imagem" src="" alt="Preview do Projeto" />
+        <h3 id="modal-titulo"></h3>
+        <p id="modal-descricao"></p>
+        <p>
+          <strong>Tecnologias:</strong> <span id="modal-tecnologias"></span>
+        </p>
+        <div class="project-links">
+          <a id="modal-link-projeto" href="#" target="_blank">Ver Projeto</a>
+          <a id="modal-link-github" href="#" target="_blank">Ver Código</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

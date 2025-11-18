@@ -1,0 +1,552 @@
+/* ==================================
+   CSS PROJETO 3 - ESTILO GLASSMORPHISM (BRUNA)
+   ==================================
+*/
+
+/* --- Reset Básico e Fundo --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  /* Habilita rolagem suave ao clicar nos links do menu */
+  scroll-behavior: smooth;
+}
+
+body {
+  /* Seu degradê original */
+  background: conic-gradient(
+    #db66e4,
+    #db66e4,
+    #77e4d4,
+    #77e4d4,
+    #77e4d4,
+    #db66e4,
+    #db66e4
+  );
+  /* O fundo fica fixo e não rola com a página */
+  background-attachment: fixed;
+  color: black;
+  transition: background 0.5s, color 0.5s;
+}
+
+/* O fundo degradê (precisa estar separado para o blur funcionar) */
+.background-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: conic-gradient(
+    #db66e4,
+    #db66e4,
+    #77e4d4,
+    #77e4d4,
+    #77e4d4,
+    #db66e4,
+    #db66e4
+  );
+  background-attachment: fixed;
+  z-index: -1;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  /* Espaço no topo para o menu fixo não cobrir o conteúdo */
+  padding-top: 100px;
+  padding-bottom: 2em;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* --- Menu de Navegação Fixo --- */
+.main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+  /* Efeito Glassmorphism no menu */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 1000;
+}
+.main-nav a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5em;
+  transition: color 0.3s;
+}
+.main-nav a:hover {
+  color: #4a234f;
+}
+.nav-links {
+  display: flex;
+  gap: 1em;
+}
+/* Logo no menu */
+.nav-logo {
+  font-size: 1.2em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- O Card de Vidro (Estilo Principal) --- */
+.card {
+  background: rgba(255, 255, 255, 0.15); /* Fundo branco transparente */
+  backdrop-filter: blur(20px); /* O desfoque */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1em;
+  width: 100%; /* Ocupa a largura do container */
+  text-align: center;
+  padding: 2em;
+  margin-bottom: 2em; /* Espaço entre os cards */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  transition: border-color 0.5s;
+}
+
+/* --- Estilos das Seções --- */
+
+/* Home */
+#home {
+  text-align: center;
+}
+.profile-photo {
+  border: 3px solid black;
+  width: 10em;
+  height: 10em;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1em;
+  transition: border-color 0.5s;
+}
+#nome {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+/* Efeito de digitação (precisa de altura mínima) */
+#cargo {
+  font-size: 1.2em;
+  min-height: 1.5em;
+  font-weight: 500;
+}
+
+/* Seções Gerais */
+h2 {
+  font-size: 1.8em;
+  margin-bottom: 0.8em;
+  border-bottom: 2px solid black;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+.minha-bio {
+  line-height: 1.8em;
+  text-align: justify;
+}
+
+/* --- Seção Projetos (Req. Modal) --- */
+.project-item {
+  cursor: pointer; /* Indica que o card é clicável */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.3);
+  padding-bottom: 1.5em;
+  margin-bottom: 1.5em;
+  text-align: left; /* Alinha texto dos projetos à esquerda */
+}
+.project-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+.project-item:hover {
+  transform: scale(1.02); /* Leve "zoom" ao passar o mouse */
+  box-shadow: 0 12px 32px rgba(31, 38, 135, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 1em;
+}
+
+/* --- A CORREÇÃO DA IMAGEM GRANDE ESTÁ AQUI --- */
+.project-thumb {
+  width: 100%; /* Força a imagem a respeitar a largura do card */
+  height: auto; /* Mantém a proporção */
+  border-radius: 8px;
+  margin-bottom: 1em;
+  opacity: 0.9;
+  object-fit: cover;
+}
+
+.project-item h3 {
+  font-size: 1.3em;
+  margin-bottom: 0.5em;
+}
+
+/* Botões "Ver Projeto" e "Ver Código" (Dentro do Modal ou Card) */
+.project-links {
+  margin-top: 1em;
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+}
+.project-links a {
+  color: black;
+  text-decoration: none;
+  border: 1px solid black;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.project-links a:hover {
+  background: black;
+  color: white;
+}
+
+/* --- Seção Habilidades (Req. Novo) --- */
+.skills-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8em;
+  padding-top: 1em;
+  justify-content: center;
+}
+.skills-list li {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  font-weight: 500;
+}
+
+/* --- Seção Contato (Req. Formulário AJAX) --- */
+#form-contato {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-top: 1.5em;
+  text-align: left;
+}
+#form-contato input,
+#form-contato textarea {
+  padding: 0.8em;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 0.5em;
+  background: rgba(255, 255, 255, 0.5);
+  font-size: 1rem;
+  color: black;
+  width: 100%;
+}
+#form-contato input::placeholder,
+#form-contato textarea::placeholder {
+  color: #333;
+}
+.btn-form {
+  color: black;
+  text-decoration: none;
+  border: 1px solid black;
+  padding: 0.8em 1em;
+  border-radius: 0.5em;
+  font-weight: bold;
+  transition: 0.3s;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  font-size: 1rem;
+}
+.btn-form:hover {
+  background: black;
+  color: white;
+}
+#form-status {
+  margin-top: 1em;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Redes Sociais (no rodapé do contato) */
+.redes-sociais {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-top: 2em;
+  padding-top: 1em;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+.redes-sociais a {
+  color: black;
+  text-decoration: none;
+  border: 1px solid black;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.redes-sociais a:hover {
+  background: black;
+  color: white;
+}
+
+/* --- Estilo do Modal (Req. Novo) --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+
+  /* Começa escondido */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.modal-overlay.visivel {
+  opacity: 1;
+  visibility: visible;
+}
+.modal-content {
+  /* Reutiliza o .card, mas com ajustes */
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  /* Animação de "pop-up" */
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+  background: rgba(255, 255, 255, 0.95); /* Fundo mais sólido para leitura */
+  color: black;
+}
+.modal-overlay.visivel .modal-content {
+  transform: scale(1);
+}
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  color: inherit;
+  cursor: pointer;
+  z-index: 10;
+}
+#modal-imagem {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1em;
+  display: block; /* Garante que a imagem não fique oculta */
+}
+
+/* --- Botão de Tema (Dark Mode) --- */
+.theme-btn {
+  position: fixed; /* Fixo na tela */
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid black;
+  color: black;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  z-index: 1001;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.theme-btn:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* --- Menu Hambúrguer (Req. Mobile) --- */
+.btn-mobile {
+  display: none; /* Escondido no Desktop */
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1100; /* Acima do menu */
+}
+
+/* ==================================
+   REGRAS DO MODO ESCURO (DARK MODE)
+   (Atualizado para novos elementos)
+==================================
+*/
+body.dark-mode {
+  background: conic-gradient(
+    #4a234f,
+    #4a234f,
+    #1c3d38,
+    #1c3d38,
+    #1c3d38,
+    #4a234f,
+    #4a234f
+  );
+  color: white;
+}
+body.dark-mode .background-overlay {
+  background: conic-gradient(
+    #4a234f,
+    #4a234f,
+    #1c3d38,
+    #1c3d38,
+    #1c3d38,
+    #4a234f,
+    #4a234f
+  );
+}
+body.dark-mode .main-nav {
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+body.dark-mode .main-nav a {
+  color: white;
+}
+body.dark-mode .main-nav a:hover {
+  color: #db66e4;
+}
+body.dark-mode .card {
+  border-color: white;
+  background: rgba(0, 0, 0, 0.3);
+}
+body.dark-mode .profile-photo {
+  border-color: white;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+body.dark-mode h2 {
+  border-bottom-color: white;
+}
+body.dark-mode .project-item {
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+body.dark-mode .project-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+body.dark-mode .project-links a {
+  color: white;
+  border-color: white;
+}
+body.dark-mode .project-links a:hover {
+  background: white;
+  color: black;
+}
+body.dark-mode .skills-list li {
+  background: rgba(255, 255, 255, 0.1);
+}
+body.dark-mode .theme-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
+  color: white;
+}
+body.dark-mode .theme-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+body.dark-mode .btn-form {
+  color: white;
+  border-color: white;
+}
+body.dark-mode .btn-form:hover {
+  background: white;
+  color: black;
+}
+body.dark-mode #form-contato input,
+body.dark-mode #form-contato textarea {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+body.dark-mode #form-contato input::placeholder,
+body.dark-mode #form-contato textarea::placeholder {
+  color: #ccc;
+}
+body.dark-mode .redes-sociais a {
+  color: white;
+  border-color: white;
+}
+body.dark-mode .redes-sociais a:hover {
+  background: white;
+  color: black;
+}
+/* Modal no Dark Mode */
+body.dark-mode .modal-content {
+  background: rgba(30, 30, 30, 0.95);
+  color: white;
+}
+
+/* ==================================
+   RESPONSIVIDADE (MOBILE)
+==================================
+*/
+@media screen and (max-width: 768px) {
+  .container {
+    padding-top: 80px; /* Menos espaço no topo */
+  }
+
+  .card {
+    width: 100%;
+    max-width: 100%;
+    padding: 1.5em;
+  }
+
+  .main-nav {
+    padding: 0.8em 1em;
+  }
+
+  /* --- Lógica do Menu Hambúrguer --- */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 70%;
+    background: rgba(255, 255, 255, 0.2); /* Fundo glassmorphism */
+    backdrop-filter: blur(15px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    /* Escondido por padrão */
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in;
+  }
+  .nav-links.nav-ativa {
+    transform: translateX(0);
+  }
+  .btn-mobile {
+    display: block; /* Mostra o botão hambúrguer */
+  }
+  body.dark-mode .nav-links {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  /* --- Fim do Menu Hambúrguer --- */
+
+  .profile-photo {
+    width: 8em;
+    height: 8em;
+  }
+  #nome {
+    font-size: 1.5em;
+  }
+  #cargo {
+    font-size: 1em;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+}
